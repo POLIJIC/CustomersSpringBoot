@@ -35,5 +35,16 @@ public class CustomerController {
 
         return  customerDao.createCustomer(customers);
     }
+    @RequestMapping(value="api/customer/{document}",method = RequestMethod.PUT)
+    public Customers updateCustomer(@PathVariable("document") long document,@RequestBody Customers customers){
+
+        return  customerDao.updateCustomer(document,customers);
+    }
+    @RequestMapping(value="api/customer/{document}",method = RequestMethod.DELETE)
+    public Customers deleteCustomer(@PathVariable("document") long document){
+
+        return  customerDao.deleteCustomer(document);
+    }
+
 
 }

@@ -12,4 +12,7 @@ public interface CustomerDao {
 
     Customers createCustomer(Customers customers);
 
+    Customers updateCustomer(long document,Customers customers);
+
+    Customers deleteCustomer(long document);
 }

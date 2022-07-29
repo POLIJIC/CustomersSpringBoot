@@ -32,6 +32,27 @@ public class CustomersImpl implements CustomerDao{
         return entityManager.merge(customers);
     }
 
+    @Override
+    public Customers updateCustomer(long document, Customers customers) {
+        Customers c=new Customers();
+        c=entityManager.find(Customers.class,document);
+        c.setName(customers.getName());
+        c.setLastName(customers.getLastName());
+        c.setCellPhone(customers.getCellPhone());
+        c.setEmail(customers.getEmail());
+        c.setMunicipality(customers.getMunicipality());
+        c.setAddress(customers.getAddress());
+        c.setContactName(customers.getContactName());
+        c.setCellPhoneContact(customers.getCellPhoneContact());
+        return entityManager.merge(c);
+    }
+
+    @Override
+    public Customers deleteCustomer(long document) {
+        Customers c=entityManager.find(Customers.class,document);
+        entityManager.remove(c);
+        return c;
+    }
 
 
 }
